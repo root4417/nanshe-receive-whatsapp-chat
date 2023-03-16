@@ -5,7 +5,6 @@ import static com.whatsapp.receive_whatsapp_chat.ReceiveWhatsappChatPlugin.PATH;
 import static com.whatsapp.receive_whatsapp_chat.ReceiveWhatsappChatPlugin.TEXT;
 import static com.whatsapp.receive_whatsapp_chat.ReceiveWhatsappChatPlugin.TITLE;
 import static com.whatsapp.receive_whatsapp_chat.ReceiveWhatsappChatPlugin.TYPE;
-import io.flutter.embedding.android.FlutterFragmentActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -45,7 +44,7 @@ import io.flutter.plugin.common.MethodChannel;
  * @version 1
  * @since 25/05/18
  */
-public class FlutterShareReceiverActivity extends FlutterFragmentActivity {
+public class FlutterShareReceiverActivity extends FlutterActivity {
 
     public static final String STREAM = "plugins.flutter.io/receiveshare";
 
