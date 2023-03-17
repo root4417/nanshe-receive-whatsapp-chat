@@ -98,7 +98,15 @@ abstract class ReceiveWhatsappChat<T extends StatefulWidget> extends State<T> {
     if (!await IOSUtils.unzip(path,Directory(desPath))) throw Exception("Unzip failed");
     List<String> chat = await IOSUtils.readFile(desPath);
     chat.insert(0, path.split('/').last);
-    receiveChatContent(ChatAnalyzer.analyze(chat));
+    var files = Directory(desPath).listSync();
+    List<String> images = List.empty(growable: true);
+    for(var file in files){
+       if(file.path.contains('.jpg')){
+         images.add(file.path);
+       }
+    }
+
+    receiveChatContent(ChatAnalyzer.analyze(chat,images));
   }
   
   Future<String> createDestinationDir(String dirName)async{
