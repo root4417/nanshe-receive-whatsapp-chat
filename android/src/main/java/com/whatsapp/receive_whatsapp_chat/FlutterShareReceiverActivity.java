@@ -45,7 +45,7 @@ import io.flutter.plugin.common.MethodChannel;
  * @version 1
  * @since 25/05/18
  */
-public class FlutterShareReceiverActivity extends FlutterActivity {
+public class FlutterShareReceiverActivity extends FlutterFragmentActivity {
 
     public static final String STREAM = "plugins.flutter.io/receiveshare";
 
@@ -60,6 +60,8 @@ public class FlutterShareReceiverActivity extends FlutterActivity {
     @Override
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         super.configureFlutterEngine(flutterEngine);
+        init(flutterEngine.getDartExecutor().getBinaryMessenger(), this);
+
         new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL).setMethodCallHandler(
                 (call, result) -> {
                     if (call.method.equals("analyze")) {
@@ -114,10 +116,10 @@ public class FlutterShareReceiverActivity extends FlutterActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (!inited) {
-            init(getFlutterEngine().getDartExecutor().getBinaryMessenger(), this);
-        }
+//
+//        if (!inited) {
+//            init(getFlutterEngine().getDartExecutor().getBinaryMessenger(), this);
+//        }
     }
 
     public void init(BinaryMessenger flutterView, Context context) {
