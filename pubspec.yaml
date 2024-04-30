@@ -11,7 +11,7 @@ dependencies:
   path_provider: ^2.1.1
   collection: ^1.17.2
   flutter_archive: ^5.0.0
-  receive_sharing_intent: ^1.4.5
+  receive_sharing_intent: 1.4.5
   flutter:
     sdk: flutter
 
